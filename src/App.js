@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Post from './components/CustomButton'
+import Post from './components/Post'
 import './App.css'
 
 function App() {
@@ -56,10 +56,13 @@ function App() {
             
             <Post id={item.id} userId={item.userId} title={item.title} body= {item.body} del={()=>del(index)} edit={()=>edit(index)}/>
             {
-              isEdit && editIndex == index &&
-              <div><input onChange = {(e) => setTitle(e.target.value)}  placeholder={item.title} ></input>
-              <input onChange = {(e) => setBody(e.target.value)} placeholder={item.body}></input>
-              <button onClick={update}>update</button>
+              isEdit && editIndex === index &&
+              <div>
+                <p>Edit Title</p>
+                <input onChange = {(e) => setTitle(e.target.value)}  placeholder={item.title} ></input><br/>
+                <p>Edit Body</p>
+                <input onChange = {(e) => setBody(e.target.value)} placeholder={item.body}></input><br/>
+                <button onClick={update}>update</button>
               </div>
             }
             </div>
